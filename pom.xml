@@ -96,13 +96,13 @@
       <repository>
         <id>nexus</id>
         <name>Landmark Technologies Releases Nexus Repository</name>
-        <url>http://54.164.3.171:8089/landmark/repository/team-practice/</url>
+        <url>http://18.209.21.48:8089/landmark/repository/team-practice/</url>
       </repository>
       
       <snapshotRepository>
         <id>nexus</id>
         <name>Landmark Technologies Snapshot Nexus Repository </name>
-        <url>http://54.164.3.171:8089/landmark/repository/team-practice-snapshots/</url>
+        <url>http://18.209.21.48:8089//landmark/repository/team-practice-snapshots/</url>
       </snapshotRepository>
       
   </distributionManagement>
