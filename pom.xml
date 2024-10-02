@@ -96,13 +96,13 @@
       <repository>
         <id>nexus</id>
         <name>Landmark Technologies Releases Nexus Repository</name>
-        <url>http://107.22.15.88:8089/landmark/repository/pipelinePractice/</url>
+        <url>http://107.22.15.88:8089/landmark/repository/declarative-Pipeline-Release/</url>
       </repository>
       
       <snapshotRepository>
         <id>nexus</id>
         <name>Landmark Technologies Snapshot Nexus Repository </name>
-        <url>http://107.22.15.88:8089/landmark/repository/team-practice-snapshots/</url>
+        <url>http://107.22.15.88:8089/landmark/repository/cybertracks-tesla-snapshots/</url>
       </snapshotRepository>
       
   </distributionManagement>
