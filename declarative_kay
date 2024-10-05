@@ -16,6 +16,7 @@ pipeline{
           sh 'mvn clean package'
         }
     }
+/*
      stage('3codeQuality'){
        steps{
           sh "echo CodeQualityAnalysis completed"
@@ -46,6 +47,7 @@ pipeline{
         }
         }
     }
+*/
     stage('7Deploy2Production'){
        steps{
           sh "echo deployment is ready for the client server"
