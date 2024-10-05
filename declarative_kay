@@ -33,7 +33,7 @@ pipeline{
        steps{
           sh "echo deployment is ready for the client server"
           sh "echo using deploy to container plugin"
-          deploy adapters: [tomcat9(credentialsId: 'tomcatcred', path: '', url: 'http://54.162.63.71:8088/')], contextPath: null, war: 'target/*war'
+          deploy adapters: [tomcat9(credentialsId: 'tomcatcred', path: '', url: 'http://3.84.133.82:8088/')], contextPath: null, war: 'target/*war'
         }
     }
     stage('6ManualAproval'){
@@ -50,7 +50,7 @@ pipeline{
        steps{
           sh "echo deployment is ready for the client server"
           sh "echo using deploy to container plugin"
-          deploy adapters: [tomcat9(credentialsId: 'tomcatcred', path: '', url: 'http://54.162.63.71:8088/')], contextPath: null, war: 'target/*war'
+          deploy adapters: [tomcat9(credentialsId: 'tomcatcred', path: '', url: 'http://3.84.133.82:8088/')], contextPath: null, war: 'target/*war'
         }
     }
     stage('8NotificationEmail'){
