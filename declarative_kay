@@ -1,0 +1,66 @@
+pipeline{
+    agent any
+    tools{
+    maven 'maven3'
+    }
+    stages{
+      stage('1Gitcloning'){
+      steps{
+          sh "echo cloning the latest app version"
+          git 'https://github.com/Kayode2024/maven-web-application'     
+        }
+    }
+    stage('2Build'){
+       steps{
+          sh "echo creating deployable packages"
+          sh 'mvn clean package'
+        }
+    }
+     stage('3codeQuality'){
+       steps{
+          sh "echo CodeQualityAnalysis completed"
+          sh 'mvn sonar:sonar'
+        }
+    }
+    stage('4uploadArtifacts2Nexus'){
+       steps{
+          sh 'mvn deploy'
+          sh "echo artifact upload successfullyu"
+          sh "echo i am now a build engr"
+        }
+    }
+    stage('5Deploy2UAT'){
+       steps{
+          sh "echo deployment is ready for the client server"
+          sh "echo using deploy to container plugin"
+          deploy adapters: [tomcat9(credentialsId: 'tomcatcred', path: '', url: 'http://54.162.63.71:8088/')], contextPath: null, war: 'target/*war'
+        }
+    }
+    stage('6ManualAproval'){
+       steps{
+          sh "echo please review and approve"
+          sh "echo using deploy to container plugin ready for inspection"
+          sh "echo i am now a build engr"
+          timeout(time:5, unit:'DAYS'){
+        input message: 'Application ready for deployment, please review and approve'
+        }
+        }
+    }
+    stage('7Deploy2Production'){
+       steps{
+          sh "echo deployment is ready for the client server"
+          sh "echo using deploy to container plugin"
+          deploy adapters: [tomcat9(credentialsId: 'tomcatcred', path: '', url: 'http://54.162.63.71:8088/')], contextPath: null, war: 'target/*war'
+        }
+    }
+    stage('8NotificationEmail'){
+       steps{
+          sh "echo monitoring and observation"
+          sh "echo application performance and monitoring in progress"
+          emailext body: '''Deployment to UAT completed. Please review and approve for Production deployment
+          Regards,
+          Kay''', subject: 'Successful ', to: 'tanimowo.kayode1@gmail.com'
+    }
+}
+}
+}
